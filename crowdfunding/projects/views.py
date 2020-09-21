@@ -59,6 +59,9 @@ class ProjectDetail(APIView):
 		)
 		if serializer.is_valid():
 			serializer.save()
+			return Response(serializer.data)
+		return Response (serializer.errors)
+		# add this return error line
 
 
 		
