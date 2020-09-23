@@ -26,15 +26,23 @@ class ProjectList(APIView):
 				serializer.data,
 				status=status.HTTP_201_CREATED
 			)
-		return Response(
-			serializer.errors,
-			status=status.HTTP_400_BAD_REQUEST
-		)
+			return Response(
+				serializer.errors,
+				status=status.HTTP_400_BAD_REQUEST
+			)
+	
+	def delete(self, request, pk):
+		project = self.get_object(pk)
+		project.delete()
+		return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
 
 class ProjectDetail(APIView):
 	
 	permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-
 
 	def get_object(self, pk):
 		try:
@@ -63,6 +71,10 @@ class ProjectDetail(APIView):
 		return Response (serializer.errors)
 		# add this return error line
 
+	def delete(self, request, pk):
+		project = self.get_object(pk)
+		project.delete()
+		return Response(status=status.HTTP_204_NO_CONTENT)
 
 		
 class PledgeList(APIView):
@@ -102,7 +114,6 @@ class PledgeDetailList(APIView):
 	def get(self, request, pk):
 		pledge = self.get_object(pk)
 		serializer = PledgeDetailSerializer(pledge)
-		pledges = Pledge.objects.filter(supporter_id=pk)
 		return Response(serializer.data)
 
 	def put(self, request, pk):
@@ -117,12 +128,10 @@ class PledgeDetailList(APIView):
 			serializer.save()
 		return Response(serializer.data)
 	
+
+
+class PledgeSupporterList(APIView):
 	def get(self, request, pk):
 		pledges = Pledge.objects.filter(supporter_id=pk)
 		serializer = PledgeDetailSerializer(pledges, many=True)
 		return Response(serializer.data)
-
-	# def delete(self, request, pk):
-	# 	pledge = self.get_object(pk)
-	# 	pledge.delete()
-	# 	eturn Response(status=status.HTTP_204_NO_CONTENT)
