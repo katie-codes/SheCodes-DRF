@@ -20,6 +20,11 @@ class ProjectSerializer(serializers.Serializer):
 		image = serializers.URLField()
 		is_open = serializers.BooleanField()
 		date_created = serializers.DateTimeField()
+		category = serializers.MultipleChoiceField(
+			choices=('Myself or Someone else', 'A Charity or Institution', 'Education or Learning', 'The Environment', 'Innovation', 'Other'),
+			default=('Education or Learning'),
+			label=('What are you raising money for?')
+		)
 		owner = serializers.ReadOnlyField(source='owner.id')
 #	pledges = PledgeSerializer(many=True, read_only=True)
 	
@@ -36,6 +41,7 @@ class ProjectDetailSerializer(ProjectSerializer):
 			instance.image = validated_data.get('image', instance.image)
 			instance.is_open = validated_data.get('is_open', instance.is_open)
 			instance.date_created = validated_data.get('date_created', instance.date_created)
+			instance.date_category = validated_data.get('category', instance.category)
 			instance.owner = validated_data.get('owner', instance.owner)
 			instance.save()
 			return instance
