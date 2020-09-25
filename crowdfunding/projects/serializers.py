@@ -21,8 +21,8 @@ class ProjectSerializer(serializers.Serializer):
 		is_open = serializers.BooleanField()
 		date_created = serializers.DateTimeField()
 		category = serializers.MultipleChoiceField(
-			choices=('Myself or Someone else', 'A Charity or Institution', 'Education or Learning', 'The Environment', 'Innovation', 'Other'),
-			default=('Education or Learning'),
+			choices=('Education', 'Medical', 'Community', 'Environment', 'Innovation', 'Event', 'Sports', 'Creative'),
+			default=('Education'),
 			label=('What are you raising money for?')
 		)
 		owner = serializers.ReadOnlyField(source='owner.id')
@@ -55,3 +55,4 @@ class PledgeDetailSerializer(PledgeSerializer):
 			instance.supporter_id = validated_data.get('supporter_id', instance.supporter_id)
 			instance.save()
 			return instance
+

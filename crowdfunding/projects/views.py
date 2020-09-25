@@ -135,9 +135,16 @@ class PledgeDetailList(APIView):
 class PledgeSupporterList(APIView):
 	def get(self, request, pk):
 		pledges = Pledge.objects.filter(supporter_id=pk)
+		sum_pledges = pledges.aggregate(Sum('amount'))['amount__sum']
 		serializer = PledgeDetailSerializer(pledges, many=True)
+		new_serializer = dict()
+		new_serializer['pledges'] = serializer.data
+		new_serializer['sum'] = sum_pledges
+		return Response(new_serializer)
+
+
+class ProjectCategory(APIView):
+	def get(self, request, pk):
+		projects = Project.objects.filter(category=pk)
+		serializer = ProjectSerializer(projects, many=True)
 		return Response(serializer.data)
-
-	def get_queryset(self):
-		return Pledge.objects.filter(supporter_id=pk).aggregate(Sum('pledges'))
-
