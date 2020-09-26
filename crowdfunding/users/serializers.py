@@ -12,7 +12,7 @@ class CustomUserSerializer(serializers.Serializer):
     # profile_picture = serializers.ImageField(upload_to='images/', null=True, blank=True,)
 
     def create(self, validated_data):
-        return CustomUser.objects.create(**validated_data)
+        return CustomUser.objects.create_user(**validated_data)
 
 class UserDetailSerializer(CustomUserSerializer):
     def update(self, instance, validated_data):

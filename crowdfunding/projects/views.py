@@ -6,7 +6,6 @@ from .serializers import ProjectSerializer, PledgeSerializer, ProjectDetailSeria
 from django.http import Http404
 from rest_framework import status, permissions
 from .permissions import IsOwnerOrReadOnly, IsSupporterOrReadOnly
-from django.db.models import Sum
 
 permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
@@ -52,6 +51,11 @@ class ProjectDetail(APIView):
 			return project
 		except Project.DoesNotExist:
 			raise Http404
+
+	def delete(self, request, pk):
+		project = self.get_object(pk)
+		project.delete()
+		return Response(status=status.HTTP_204_NO_CONTENT)
 		
 	def get(self, request, pk):
 		project = self.get_object(pk)
@@ -68,15 +72,13 @@ class ProjectDetail(APIView):
 		)
 		if serializer.is_valid():
 			serializer.save()
-			return Response(serializer.data, status=status.HTTP_201_CREATED)
-		return Response (serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+			return Response()
+		return Response ()
 		# add this return error line
+		# 	return Response(serializer.data, status=status.HTTP_201_CREATED)
+		# return Response (serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-	def delete(self, request, pk):
-		project = self.get_object(pk)
-		project.delete()
-		return Response(status=status.HTTP_204_NO_CONTENT)
 
 		
 class PledgeList(APIView):
