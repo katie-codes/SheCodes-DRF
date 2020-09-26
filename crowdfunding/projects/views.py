@@ -144,7 +144,9 @@ class PledgeSupporterList(APIView):
 
 
 class ProjectCategory(APIView):
-	def get(self, request, pk):
-		projects = Project.objects.filter(category=pk)
+	def get(self, request, category):
+		projects = Project.objects.filter(category=category)
+		print(Project.objects.all())
 		serializer = ProjectSerializer(projects, many=True)
+		print(projects)
 		return Response(serializer.data)

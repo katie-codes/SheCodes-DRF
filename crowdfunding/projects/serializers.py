@@ -20,9 +20,9 @@ class ProjectSerializer(serializers.Serializer):
 		image = serializers.URLField()
 		is_open = serializers.BooleanField()
 		date_created = serializers.DateTimeField()
-		category = serializers.MultipleChoiceField(
-			choices=('Education', 'Medical', 'Community', 'Environment', 'Innovation', 'Event', 'Sports', 'Creative'),
-			default=('Education'),
+		category = serializers.ChoiceField(
+			choices=('education', 'medical', 'community', 'environment', 'innovation', 'event', 'sports', 'creative'),
+			default=('education'),
 			label=('What are you raising money for?')
 		)
 		owner = serializers.ReadOnlyField(source='owner.id')
