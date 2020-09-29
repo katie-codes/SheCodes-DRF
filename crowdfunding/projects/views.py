@@ -6,6 +6,8 @@ from .serializers import ProjectSerializer, PledgeSerializer, ProjectDetailSeria
 from django.http import Http404
 from rest_framework import status, permissions
 from .permissions import IsOwnerOrReadOnly, IsSupporterOrReadOnly
+from django.db.models import Sum
+
 
 permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
