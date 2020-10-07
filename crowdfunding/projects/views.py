@@ -61,8 +61,17 @@ class ProjectDetail(APIView):
 		
 	def get(self, request, pk):
 		project = self.get_object(pk)
+		pledges = project.pledges.all()
 		serializer = ProjectDetailSerializer(project)
-		return Response(serializer.data)
+		# sum of project
+		sum_projects = pledges.aggregate(Sum('amount'))['amount__sum']
+		serializer = ProjectDetailSerializer(project)
+		new_project_total = dict()
+		new_project_total['project'] = serializer.data
+		new_project_total['sum'] = sum_projects
+		return Response(new_project_total)
+		# ends here
+		
 
 	def put(self, request, pk):
 		project = self.get_object(pk)

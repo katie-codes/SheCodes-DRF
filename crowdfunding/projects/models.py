@@ -30,3 +30,5 @@ class Pledge(models.Model):
 		on_delete=models.CASCADE,
 		related_name='supporter_pledges'
 	)
+
+# to access a plegde from projects its - project.pledges.all
