@@ -15,14 +15,15 @@ class PledgeSerializer(serializers.Serializer):
 class ProjectSerializer(serializers.Serializer):
 		id = serializers.ReadOnlyField()
 		title = serializers.CharField(max_length = 200)
+		short_description = serializers.CharField(max_length=200)
 		description = serializers.CharField(max_length=None)
 		goal = serializers.IntegerField()
 		image = serializers.URLField()
 		is_open = serializers.BooleanField()
 		date_created = serializers.DateTimeField()
 		category = serializers.ChoiceField(
-			choices=('education', 'medical', 'community', 'environment', 'innovation', 'event', 'sports', 'creative'),
-			default=('education'),
+			choices=('solar', 'wind', 'plastic', 'planting', 'event', 'electric', 'bins', 'cycling'),
+			default=('solar'),
 			label=('What are you raising money for?')
 		)
 		owner = serializers.ReadOnlyField(source='owner.id')
@@ -36,6 +37,7 @@ class ProjectDetailSerializer(ProjectSerializer):
 
 		def update(self, instance, validated_data):
 			instance.title = validated_data.get('title', instance.title)
+			instance.short_description = validated_data.get('short_description', instance.short_description)
 			instance.description = validated_data.get('description', instance.description)
 			instance.goal = validated_data.get('goal', instance.goal)
 			instance.image = validated_data.get('image', instance.image)

@@ -4,7 +4,8 @@ from django.contrib.auth import get_user_model
 
 class Project(models.Model):
 	title = models.CharField(max_length=200)
-	description = models.TextField()
+	short_description = models.TextField(max_length=200, default='')
+	description = models.TextField(max_length=None, default='')
 	goal = models.IntegerField()
 	image = models.URLField()
 	is_open = models.BooleanField()

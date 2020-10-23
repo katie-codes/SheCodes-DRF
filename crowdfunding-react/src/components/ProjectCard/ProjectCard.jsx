@@ -11,6 +11,9 @@ return (
     <div className="project-card">
     <Link to={`/projects/${projectData.id}`}>
     <img src={projectData.image}/> <h3>{projectData.title}</h3> </Link>
+    <p>{projectData.description}</p>
+    <p>{projectData.goal}</p>
+    <p>{projectData.sum}</p>
     </div>
     ); 
 }

@@ -1,0 +1,29 @@
+
+.header { 
+    width: 100%; 
+    height: 94px; 
+    background-color: #dddde7;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-link { 
+    margin-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: .6;
+    color: #323945;
+    padding: 10px;
+    display: flex;
+    margin-left: 10px;
+}
+
+.logo {
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-start;
+
+}
