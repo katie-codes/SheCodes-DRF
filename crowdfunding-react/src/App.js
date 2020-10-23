@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import Header from "./components/Header/Header";
+import Categories from "./components/Categories/Categories";
+import Carousel from "./components/Carousel/Carousel";
 import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import "./App.css";
@@ -14,6 +16,7 @@ function App() {
       <div>
         <Header />
         <Nav />
+        <Carousel />
 
         <Switch>
           <Route path="/projects/:id">
@@ -24,6 +27,7 @@ function App() {
           </Route>
 
         </Switch>
+        <Categories />
       </div>
     </Router>
 ); 

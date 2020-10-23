@@ -1,0 +1,12 @@
+
+
+.carousel-wrapper {
+    background-color: thistle;
+}
+
+
+.banner {
+    width: 100%; 
+    object-fit: cover;
+    /* width: 500px */
+}
