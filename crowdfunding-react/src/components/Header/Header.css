@@ -1,0 +1,14 @@
+
+
+.logo {
+    position: relative;
+    width: 300px;
+    padding: 1em;
+    padding: 50px
+}
+
+.header-bar {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}

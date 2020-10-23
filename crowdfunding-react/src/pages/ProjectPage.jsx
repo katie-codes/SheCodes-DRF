@@ -34,16 +34,14 @@ return (
         <h3>Project Type: {projectData.category}</h3>
         <h3>Goal: {projectData.goal}</h3>
         <h3>{`Status: ${projectData.is_open}`}</h3>
-        <p>{projectData.description}</p>
-        <img src={projectData.image}/> 
-        
-        <h3>Project By: {projectData.owner}</h3>
+        <p>{projectData.description}</p>        
+        <h3>Goal: {projectData.owner}</h3>
         <h3>Pledges:</h3>
         <ul>
             {projectData.pledges.map((pledgeData, key) => {
             return (
                 <li key={key}>
-                    ${pledgeData.amount} from {projectData.owner}
+                    ${pledgeData.amount} from {pledgeData.supporter_id}
                 </li>
                 );
             })}
