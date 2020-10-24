@@ -1,17 +1,13 @@
 import React from "react";
 import banner1 from "../assets/bethechange_banner_1260x600_1.jpg";
-// import banner2 from "../assets/bethechange_banner_1260x600_2.jpg";
-// import banner3 from "../assets/bethechange_banner_1260x600_3.jpg";
 import "./Carousel.css";
-
-
 
 
 
 function Carousel() {
     return (
         <div class="carousel-wrapper">
-            <img class="banner" src={banner1} alt="website logo" />
+            <img class="banner" src={banner1} alt="" />
         </div>
     )
 }

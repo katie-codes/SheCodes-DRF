@@ -37,6 +37,7 @@ return (
         <p>{projectData.description}</p>        
         <h3>Goal: {projectData.owner}</h3>
         <h3>Pledges:</h3>
+        {(projectData.pledges) ? 
         <ul>
             {projectData.pledges.map((pledgeData, key) => {
             return (
@@ -45,7 +46,7 @@ return (
                 </li>
                 );
             })}
-        </ul>
+        </ul>: null }
     </div>
 
 );

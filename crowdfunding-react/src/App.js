@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Categories from "./components/Categories/Categories";
 import Carousel from "./components/Carousel/Carousel";
 import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 import ProjectPage from "./pages/ProjectPage";
 import "./App.css";
 
@@ -22,6 +23,11 @@ function App() {
           <Route path="/projects/:id">
             <ProjectPage />
           </Route>
+
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+
           <Route path="/">
             <HomePage />
           </Route>

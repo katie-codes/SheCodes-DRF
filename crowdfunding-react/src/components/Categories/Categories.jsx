@@ -24,14 +24,14 @@ function Categories() {
         <div class="icons-container">
             <h1>Choose a category</h1>
             <br></br>
-            <img class="icons" src={wind} alt="cycling" />
+            <img class="icons" src={wind} alt="wind" />
             <img class="icons" src={cycling} alt="cycling" />
-            <img class="icons" src={bags} alt="cycling" />
-            <img class="icons" src={planting} alt="cycling" />
-            <img class="icons" src={bins} alt="cycling" />
-            <img class="icons" src={event} alt="cycling" />
-            <img class="icons" src={plastic} alt="cycling" />
-            <img class="icons" src={electric} alt="cycling" />
+            <img class="icons" src={bags} alt="bags" />
+            <img class="icons" src={planting} alt="planting" />
+            <img class="icons" src={solar} alt="solar" />
+            <img class="icons" src={event} alt="event" />
+            <img class="icons" src={plastic} alt="plastic" />
+            <img class="icons" src={electric} alt="electric" />
         </div>
 
 
