@@ -36,7 +36,7 @@ function ProjectForm () {
 
     const postData = async () => {
         const token = window.localStorage.getItem("token")
-        
+
         const response = await fetch(
             `${process.env.REACT_APP_API_URL}projects/`, {
             method: "post",
