@@ -10,9 +10,8 @@ function Nav() {
         <nav class="header">
             <Link class="nav-link" to="/">Home</Link>
             <Link class="nav-link" to="/project">Project</Link>
-            <p> </p>
-
-
+            <Link class="nav-link" to="/login">Login</Link>
+            {/* <Link class="nav-link" to="/logout">Login</Link> */}
         </nav>
     );
 }

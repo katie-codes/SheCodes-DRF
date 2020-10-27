@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 // import { allProjects } from "../data";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
+import Categories from "../components/Categories/Categories";
 
 
 
@@ -26,16 +27,13 @@ function HomePage() {
 
 return (
 
-
-
-
-
-
-
+<div>
 <div id="project-list">
     {projectList.map((projectData, key) => {
         return <ProjectCard key={key} projectData={projectData} id={projectData.id}/>;
     })}
+</div>
+<Categories />
 </div>
 );
 }

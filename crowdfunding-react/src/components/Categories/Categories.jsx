@@ -9,6 +9,8 @@ import plastic from "../assets/bethechange_icons_plastic.png";
 import solar from "../assets/bethechange_icons_solar.png";
 import wind from "../assets/bethechange_icons_wind.png";
 import "./Categories.css";
+import { Link } from "react-router-dom";
+
 
 
 
@@ -24,7 +26,10 @@ function Categories() {
         <div class="icons-container">
             <h1>Choose a category</h1>
             <br></br>
-            <img class="icons" src={wind} alt="wind" />
+
+            {/* <link to={`/projects/wind`}>
+            <img class="icons" src={wind} alt="wind" /> </link> */}
+
             <img class="icons" src={cycling} alt="cycling" />
             <img class="icons" src={bags} alt="bags" />
             <img class="icons" src={planting} alt="planting" />
@@ -33,9 +38,6 @@ function Categories() {
             <img class="icons" src={plastic} alt="plastic" />
             <img class="icons" src={electric} alt="electric" />
         </div>
-
-
-
 
 
 

@@ -1,16 +1,21 @@
 import React from "react";
 import mainLogo from "../assets/bethechange_logo.png";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 
 
 function Header() {
     return (
         <div class="header-bar">
-            <img class="logo" src={mainLogo} alt="website logo" />
+            <Link to={`/`}>
+            <img class="logo" src={mainLogo}/> </Link>
         </div>
     )
 }
+
+
+
 
 export default Header;
 
